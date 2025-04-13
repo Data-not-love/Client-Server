@@ -1,0 +1,5 @@
+.tab-pane .tab-header-area .tab {
+    -fx-pref-width: 120px; /* Set to your preferred width */
+    -fx-alignment: center;
+
+}
