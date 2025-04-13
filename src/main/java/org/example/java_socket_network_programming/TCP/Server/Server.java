@@ -62,6 +62,8 @@ public class Server implements File_Handling {
                 long fileSize = inputStream.readLong();
                 String sizeInMB = String.format("%.2f", fileSize / Math.pow(1024.0, 2));
 
+                // NEW: Read client OS and IP
+
                 if (fileName.isBlank()) {
                     System.err.println("Received empty filename. Skipping.");
                     continue;

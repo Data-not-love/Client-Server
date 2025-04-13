@@ -1,4 +1,4 @@
-package org.example.socket_network_programming.TCP;
+package org.example.java_socket_network_programming.TCP;
 
 public class File_To_Send {
     private int id;

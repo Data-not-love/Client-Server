@@ -15,43 +15,41 @@ public class Client implements File_Handling{
     private String IP;
 
     public Client() {
-        Dotenv dotenv = Dotenv.configure().filename(".env").load();
-        this.serverAddress = dotenv.get("SERVER_ADDRESS");
-        this.portNumber = dotenv.get("PORT");
+        id++;
+        this.serverAddress = Dotenv.configure().filename(".env").load().get("SERVER_ADDRESS");
+        this.portNumber = Dotenv.configure().filename(".env").load().get("PORT");
         this.OS = System.getProperty("os.name");
-        this.id = ++id;
 
         try {
+            // Loop through network interfaces to find actual WLAN IP
             Enumeration<NetworkInterface> interfaces = NetworkInterface.getNetworkInterfaces();
             while (interfaces.hasMoreElements()) {
                 NetworkInterface netInterface = interfaces.nextElement();
 
                 if (netInterface.isUp() && !netInterface.isLoopback() && !netInterface.isVirtual()) {
-                    if (netInterface.getName().contains("wlan") || netInterface.getDisplayName().toLowerCase().contains("wi-fi")) {
-                        Enumeration<InetAddress> addresses = netInterface.getInetAddresses();
-                        while (addresses.hasMoreElements()) {
-                            InetAddress inet = addresses.nextElement();
-                            if (inet instanceof Inet4Address) {
-                                this.ip = inet;
-                                this.IP = ip.getHostAddress();
-                                break;
-                            }
+                    Enumeration<InetAddress> addresses = netInterface.getInetAddresses();
+                    while (addresses.hasMoreElements()) {
+                        InetAddress inet = addresses.nextElement();
+                        if (inet instanceof Inet4Address) {
+                            this.ip = inet;
+                            this.IP = ip.getHostAddress(); // e.g., 192.168.1.105
+                            break;
                         }
                     }
                 }
 
-                if (this.ip != null) break;
+                if (this.ip != null) break; // stop if found
             }
 
             if (this.ip == null) {
                 this.IP = "Unknown IP";
             }
+
         } catch (SocketException e) {
             this.IP = "Unknown IP";
             e.printStackTrace();
         }
     }
-
     @Override
 
     public void sendFile(File selectedFile) throws IOException {

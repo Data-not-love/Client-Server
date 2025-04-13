@@ -13,10 +13,6 @@ module org.example.java_socket_network_programming {
     requires io.github.cdimascio.dotenv.java;
     requires annotations;
 
-    opens org.example.java_socket_network_programming to javafx.fxml;
-    exports org.example.java_socket_network_programming;
-
-
 
     exports org.example.java_socket_network_programming.TCP.Controller;
     opens org.example.java_socket_network_programming.TCP.Controller to javafx.fxml;

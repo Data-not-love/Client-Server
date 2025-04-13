@@ -47,7 +47,7 @@ public class ClientGUI extends Application {
                 try {
                     client.sendFile(selectedFile);
                 } catch (IOException e) {
-                    fileLabel.setText("Failed to send file: " + e.getMessage());
+                    fileLabel.setText("Failed : " + e.getMessage());
                 }
             }
         });
