@@ -20,21 +20,21 @@ public class Observable_Client {
     }
 
     // Getters for properties
-    public String getClientID() {
-        return clientID.get();
-    }
-    public String getClientOS() {
-        return clientOS.get();
-    }
-    public String getClientIP() {
-        return clientIP.get();
-    }
-    public String getClientFile() {
-        return clientFile.get();
-    }
-    public String getClientFileSize() {
-        return clientFileSize.get();
-    }
+//    public String getClientID() {
+//        return clientID.get();
+//    }
+//    public String getClientOS() {
+//        return clientOS.get();
+//    }
+//    public String getClientIP() {
+//        return clientIP.get();
+//    }
+//    public String getClientFile() {
+//        return clientFile.get();
+//    }
+//    public String getClientFileSize() {
+//        return clientFileSize.get();
+//    }
 
 
     public StringProperty clientIDProperty() {
@@ -55,19 +55,19 @@ public class Observable_Client {
 
 
     // Setters for properties
-    public void setClientID(String clientID) {
-        this.clientID.set(clientID);
-    }
-
-    public void setClientOS(String clientOS) {
-        this.clientOS.set(clientOS);
-    }
-
-    public void setClientIP(String clientIP) {
-        this.clientIP.set(clientIP);
-    }
-
-    public void setClientFile(String clientFile) {
-        this.clientFile.set(clientFile);
-    }
+//    public void setClientID(String clientID) {
+//        this.clientID.set(clientID);
+//    }
+//
+//    public void setClientOS(String clientOS) {
+//        this.clientOS.set(clientOS);
+//    }
+//
+//    public void setClientIP(String clientIP) {
+//        this.clientIP.set(clientIP);
+//    }
+//
+//    public void setClientFile(String clientFile) {
+//        this.clientFile.set(clientFile);
+//    }
 }
