@@ -23,6 +23,20 @@ public class EmailSender {
         properties.put("mail.debug", "true");
     }
 
+    public String getServer_Password() {
+        return Server_Password;
+    }
+    public String getServer_Email() {
+        return Server_Email;
+    }
+    public Properties getProperties() {
+        return properties;
+    }
+    public Session getSession() {
+        return session;
+    }
+
+
     public void ActivateSession(){
         this.session = Session.getInstance(getProperties(), new Authenticator() {
             @Override
@@ -36,7 +50,7 @@ public class EmailSender {
         try {
             // Create a message
             Message message = new MimeMessage(getSession());
-            message.setFrom(new InternetAddress(Dotenv.configure().filename(".env").load().get("EMAIL")));
+            message.setFrom(new InternetAddress(getServer_Email()));
             message.setRecipients(
                     Message.RecipientType.TO,
                     InternetAddress.parse(clientEmail)
@@ -52,21 +66,6 @@ public class EmailSender {
             throw new RuntimeException(e);
         }
     }
-
-
-    public String getServer_Password() {
-        return Server_Password;
-    }
-    public String getServer_Email() {
-        return Server_Email;
-    }
-    public Properties getProperties() {
-        return properties;
-    }
-    public Session getSession() {
-        return session;
-    }
-
 
     public static void main(String[] args) {
         EmailSender emailSender = new EmailSender();
