@@ -6,12 +6,11 @@ import jakarta.mail.internet.*;
 import java.util.Properties;
 import java.util.Scanner;
 
-
 public class EmailSender {
     private String Server_Email;
     private String Server_Password;
     private Properties properties;
-
+    private Session session;
 
     public EmailSender() {
         this.Server_Email = Dotenv.configure().filename(".env").load().get("EMAIL");
@@ -20,43 +19,23 @@ public class EmailSender {
         properties.put("mail.smtp.auth", "true");
         properties.put("mail.smtp.starttls.enable", "true");
         properties.put("mail.smtp.host", "smtp.gmail.com");
-        properties.put("mail.smtp.port", "587");
+        properties.put("mail.smtp.port", Dotenv.configure().filename(".env").load().get("MAILPORT"));
+        properties.put("mail.debug", "true");
     }
 
-    public String getServer_Password() {
-        return Server_Password;
-    }
-
-    public String getServer_Email() {
-        return Server_Email;
-    }
-
-    public Properties getProperties() {
-        return properties;
-    }
-
-    public static void main(String[] args) {
-        EmailSender emailSender = new EmailSender();
-        Session session = Session.getInstance(emailSender.getProperties(), new Authenticator() {
+    public void ActivateSession(){
+        this.session = Session.getInstance(getProperties(), new Authenticator() {
             @Override
             protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication(emailSender.getServer_Email(),emailSender.getServer_Password());
+                return new PasswordAuthentication(getServer_Email(),getServer_Password());
             }
         });
+    }
 
-
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter your email : ");
-        String clientEmail = scanner.nextLine();
-        System.out.println("Enter your subject : ");
-        String emailSubject = scanner.nextLine();
-        System.out.println("Enter your content : ");
-        String emailContent = scanner.nextLine();
-
-
+    public void SendEmail (String clientEmail, String emailSubject, String emailContent){
         try {
             // Create a message
-            Message message = new MimeMessage(session);
+            Message message = new MimeMessage(getSession());
             message.setFrom(new InternetAddress(Dotenv.configure().filename(".env").load().get("EMAIL")));
             message.setRecipients(
                     Message.RecipientType.TO,
@@ -67,12 +46,43 @@ public class EmailSender {
 
             // Send the message
             Transport.send(message);
-
             System.out.println("Email sent successfully!");
 
         } catch (MessagingException e) {
             throw new RuntimeException(e);
         }
+    }
+
+
+    public String getServer_Password() {
+        return Server_Password;
+    }
+    public String getServer_Email() {
+        return Server_Email;
+    }
+    public Properties getProperties() {
+        return properties;
+    }
+    public Session getSession() {
+        return session;
+    }
+
+
+    public static void main(String[] args) {
+        EmailSender emailSender = new EmailSender();
+        emailSender.ActivateSession();
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter client email : ");
+        String clientEmail = scanner.nextLine();
+        System.out.println("Enter your subject : ");
+        String emailSubject = scanner.nextLine();
+        System.out.println("Enter your content : ");
+        String emailContent = scanner.nextLine();
+
+        emailSender.SendEmail(clientEmail,emailSubject,emailContent);
+
+
     }
 }
 

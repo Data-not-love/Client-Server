@@ -5,9 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c4a0312b-3a17-4997-a8b5-44cfdd2542ee" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/java_socket_network_programming/TCP/Mail_Server/EmailSender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/java_socket_network_programming/TCP/Mail_Server/EmailSender.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/module-info.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/java_socket_network_programming/TCP/Mail_Server/EmailSender$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/java_socket_network_programming/TCP/Mail_Server/EmailSender$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/java_socket_network_programming/TCP/Mail_Server/EmailSender.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/java_socket_network_programming/TCP/Mail_Server/EmailSender.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,6 +53,26 @@
     "settings.editor.selected.configurable": "preferences.pluginManager"
   }
 }]]></component>
+  <component name="RunManager">
+    <configuration name="EmailSender" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.example.java_socket_network_programming.TCP.Mail_Server.EmailSender" />
+      <module name="Java_Socket_Network_Programming" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.java_socket_network_programming.TCP.Mail_Server.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.EmailSender" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="c4a0312b-3a17-4997-a8b5-44cfdd2542ee" name="Changes" comment="" />

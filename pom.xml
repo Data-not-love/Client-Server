@@ -112,18 +112,19 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/jakarta.mail/jakarta.mail-api -->
+
+        <!-- Jakarta Mail (Full Implementation, includes jakarta.mail-api) -->
         <dependency>
-            <groupId>jakarta.mail</groupId>
-            <artifactId>jakarta.mail-api</artifactId>
-            <version>2.1.3</version>
+            <groupId>com.sun.mail</groupId>
+            <artifactId>jakarta.mail</artifactId>
+            <version>2.0.1</version>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/jakarta.activation/jakarta.activation-api -->
+        <!-- Jakarta Activation (Full Implementation, includes jakarta.activation-api) -->
         <dependency>
-            <groupId>jakarta.activation</groupId>
-            <artifactId>jakarta.activation-api</artifactId>
-            <version>2.1.3</version>
+            <groupId>com.sun.activation</groupId>
+            <artifactId>jakarta.activation</artifactId>
+            <version>2.0.1</version>
         </dependency>
 
         <dependency>
