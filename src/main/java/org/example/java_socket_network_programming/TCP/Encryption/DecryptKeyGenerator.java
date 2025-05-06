@@ -1,13 +1,12 @@
 package org.example.java_socket_network_programming.TCP.Encryption;
 
 import io.github.cdimascio.dotenv.Dotenv;
-
 import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
 import java.util.Base64;
 
-public class AESKeyGenerator {
+public class DecryptKeyGenerator {
     private static String AES = Dotenv.configure().filename(".env").load().get("ENCRYPTION_TYPE");
     private static int keySize = Integer.parseInt(Dotenv.configure().filename(".env").load().get("KEY_SIZE"));
 

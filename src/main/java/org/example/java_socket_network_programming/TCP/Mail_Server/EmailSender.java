@@ -18,8 +18,8 @@ public class EmailSender {
         this.properties = new Properties();
         properties.put("mail.smtp.auth", "true");
         properties.put("mail.smtp.starttls.enable", "true");
-        properties.put("mail.smtp.host", "smtp.gmail.com");
-        properties.put("mail.smtp.port", Dotenv.configure().filename(".env").load().get("MAILPORT"));
+        properties.put("mail.smtp.host", Dotenv.configure().filename(".env").load().get("MAIL_SERVICE"));
+        properties.put("mail.smtp.port", Dotenv.configure().filename(".env").load().get("MAIL_PORT"));
         properties.put("mail.debug", "true");
     }
 
