@@ -37,7 +37,7 @@ public class EmailSender {
     }
 
 
-    public void ActivateSession(){
+    public void ActivateSendingSession(){
         this.session = Session.getInstance(getProperties(), new Authenticator() {
             @Override
             protected PasswordAuthentication getPasswordAuthentication() {
@@ -69,7 +69,7 @@ public class EmailSender {
 
     public static void main(String[] args) {
         EmailSender emailSender = new EmailSender();
-        emailSender.ActivateSession();
+        emailSender.ActivateSendingSession();
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter client email : ");
